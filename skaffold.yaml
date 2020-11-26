@@ -1,0 +1,41 @@
+apiVersion: skaffold/v2beta10
+kind: Config
+metadata:
+  name: microservices-blog
+build:
+  artifacts:
+  - image: bineetnaidu/microservices-blogs-client
+    context: client
+    docker:
+      dockerfile: Dockerfile
+  - image: bineetnaidu/microservices-blogs-comments-service
+    context: comments-service
+    docker:
+      dockerfile: Dockerfile
+  - image: bineetnaidu/microservices-blogs-event-bus
+    context: event-bus
+    docker:
+      dockerfile: Dockerfile
+  - image: bineetnaidu/microservices-blogs-moderation-service
+    context: moderation-service
+    docker:
+      dockerfile: Dockerfile
+  - image: bineetnaidu/microservices-blogs-post-service
+    context: posts-service
+    docker:
+      dockerfile: Dockerfile
+  - image: bineetnaidu/microservices-blogs-query-service
+    context: query-service
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - k8s/client-depl.yaml
+    - k8s/comments-depl.yaml
+    - k8s/event-bus-depl.yaml
+    - k8s/ingress-srv.yaml
+    - k8s/moderations-depl.yaml
+    - k8s/posts-depl.yaml
+    - k8s/posts-srv.yaml
+    - k8s/query-depl.yaml
