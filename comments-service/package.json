@@ -1,0 +1,21 @@
+{
+  "name": "comments-service",
+  "version": "1.0.0",
+  "description": "Microservices for comments",
+  "main": "index.js",
+  "author": "Bineet Naidu",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
